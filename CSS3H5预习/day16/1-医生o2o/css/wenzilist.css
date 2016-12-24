@@ -1,0 +1,21 @@
+@charset "utf-8";
+/* CSS Document */
+.full{border-bottom:1px solid #ccc;}
+.full a{padding:3% 2%; width:96%; line-height:1.5em; color:#333; }
+.list1-arrow img{width:10px;}
+.p-con{display:table; width:95%; text-overflow: ellipsis; font-size:1em; float:left;}
+.p-con em{color:#098fe4; padding-right:10px;}
+@media only screen and (min-device-width: 375px){
+.p-con{font-size:1.05em;}
+.full{border-bottom:2px solid #ccc;}
+}
+@media only screen and (min-device-width: 414px){
+.p-con{font-size:1.1em;}
+.list1-arrow img{width:11px;}
+.full{border-bottom:2px solid #ccc;}
+}
+/*@media only screen and (min-device-width: 1024px){
+.p-con{font-size:2em;}
+.list1-arrow img{width:20px;}
+.full{border-bottom:2px solid #ccc;}
+}*/

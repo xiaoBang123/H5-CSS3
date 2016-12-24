@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+        .charector-wrap{position: relative;width: 180px;height: 300px;left: 50%;margin-left: -90px;}
+		a,.btn-paused{display: block;color: #000;text-align: center;padding: 5px;margin-bottom: 5px;margin-left: 50px;text-decoration: none;width: 50px;border: 1px solid #ccc;float: left;}
+		.btn-paused{color: red;}
+		.charector{
+		position: absolute;
+		width: 180px;
+		height:300px;
+		background: url(charector.png) 0 0 no-repeat;
+		animation-name:run;
+		animation-iteration-count: infinite;/* 动画无限播放 */
+    animation-timing-function:steps(1); /* 
+		马上跳到动画每一结束桢的状态 */
+		}
+
+		@keyframes run{
+           0%{
+           	background-position: 0 0;
+           }
+           14.3%{
+           	background-position: -180px 0;
+           }
+           28.6%{
+           	background-position: -360px 0;
+           }
+           42.9%{
+           	background-position: -540px 0;
+           }
+           57.2%{
+           	background-position: -720px 0;
+           }
+           71.5%{
+           	background-position: -900px 0;
+           }
+           85.8%{
+           	background-position: -1080px 0;
+           }
+           100%{
+           	background-position: 0 0;
+           }
+		}
+        .fast{
+        	animation-duration:0.3s;
+        }
+        .normal{
+        	animation-duration:0.6s;
+        }
+        .slow{
+        	animation-duration:0.9s;
+        }
+        .paused{
+		      animation-play-state:paused!important;
+		    }
+        .start{
+          animation-play-state: running!important;
+        }
+	</style>
+</head>
+<body>
+	<div class="charector-wrap" id="js_wrap">
+	   <div class="charector"></div>
+    </div>
+	<a class="fast" href="#none">快</a>
+	<a class="normal" href="#none">正常</a>
+	<a class="slow" href="#none">慢</a>
+	<a class="paused">暂停</a>
+  <a class="start">继续</a>
+</body>
+<script>
+	
+
+      var oFast = document.querySelector(".fast");
+      var oNormal = document.querySelector(".normal");
+      var oSlow = document.querySelector(".slow");
+      var oPaused = document.querySelector(".paused");
+      var oStart = document.querySelector(".start");
+      var oCharector = document.querySelector(".charector");
+      oFast.addEventListener("click",function(){
+
+        if(oCharector.classList.contains("normal")){
+          oCharector.classList.remove("normal");
+        }
+        if(oCharector.classList.contains("slow")){
+          oCharector.classList.remove("slow");
+        }
+        oCharector.classList.add("fast");
+      })
+      oNormal.addEventListener("click",function(){
+
+        if(oCharector.classList.contains("fast")){
+          oCharector.classList.remove("fast");
+        }
+        if(oCharector.classList.contains("slow")){
+          oCharector.classList.remove("slow");
+        }
+        oCharector.classList.add("normal");
+      })
+      oSlow.addEventListener("click",function(){
+
+        if(oCharector.classList.contains("normal")){
+          oCharector.classList.remove("normal");
+        }
+        if(oCharector.classList.contains("fast")){
+          oCharector.classList.remove("fast");
+        }
+        oCharector.classList.add("slow");
+      })
+      oPaused.addEventListener("click",function(){
+        if(oCharector.classList.contains("start")){
+          oCharector.classList.remove("start");
+        }
+        oCharector.classList.add("paused");
+      })
+      oStart.addEventListener("click",function(){
+        if(oCharector.classList.contains("stop")){
+          oCharector.classList.remove("stop");
+        }
+        oCharector.classList.add("start");
+      })
+         
+
+     
+</script>
+</html>

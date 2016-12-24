@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		figure{
+			width: 500px;
+			height: 500px;
+			margin:150px auto;
+			perspective: 800px;
+			transform-style: preserve-3d;
+
+		}
+		img{
+			width: 500px;
+			height: 500px;
+		}
+		p{
+			width: 200px;
+			height: 200px;
+			border: 1px solid red;
+			visibility: hidden;
+			transition: all 0.1s 0.1s linear;
+			
+		}
+		figure:hover p{
+			visibility:visible;
+			transform: rotateZ(180deg) translateY(-250px);
+		}
+	</style>
+</head>
+<body>
+	<section>
+		
+		<figure>
+			<p></p>
+			<img src="timg.jpg" alt="3">
+		</figure>
+	</section>
+</body>
+</html>

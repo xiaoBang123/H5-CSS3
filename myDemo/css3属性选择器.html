@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS3属性选择器</title>
+	<style>
+		/*ul li[test]{
+			color: red;
+		}*/
+		/*ul li[test="hello"]{
+			color: red;
+		}*/
+		/*ul li[test^="hello"]{
+			color: red;
+		}*/
+		/*ul li[test$="hello"]{
+			color: red;
+		}*/
+		/*ul li[test*="hello"]{
+			color: red;
+		}*/
+		/*ul>li:nth-child(4){
+			color: red;
+		}*/
+		/*ul>li:nth-child(odd){
+			color: red;
+		}*/
+		/*ul>li:nth-child(even){
+			color: red;
+		}*/
+		/* ul>li:nth-child(n){
+			color: red;
+		} */
+		/* ul>li:nth-child(n+2){
+			color: red;
+		} */
+		/* ul>li:nth-child(2n){
+			color: red;
+		}*/ 
+		/* ul>li:nth-child(3n){
+			color: red;
+		}*/ 
+		/* ul>li:nth-child(2n+4){
+			color: red;
+		} */
+		/*ul>li:nth-child(2n+1){
+			color: red;
+		}*/
+		/*li:nth-last-child(n){
+			background: green;
+		}*/
+		/*li:nth-last-child(2){
+			background: green;
+		}*/
+		/*li:nth-last-child(-n+3){
+			background: green;
+		}*/
+		/*span:nth-of-type(even){
+			background: red;
+		}*/
+		/*p:nth-of-type(odd){
+			background: green;
+		}*/
+			
+		/*p:only-child{
+			color: red;
+		}*/
+		/*input[type="text"]:hover{
+			background: green;
+		}*/
+		/*input[type="text"]:active{
+			background: green;
+		}*/
+		/*input[type="text"]:focus{
+			background: green;
+		}*/
+		/*input[type="text"]:disabled{
+			background: green;
+		}*/
+		/*input[type="checkbox"]:checked{
+			outline: 3px solid green;
+		}*/
+		/*selection两个冒号！*/
+		/*.onlyChild p::selection{
+			color: red;
+		}*/
+		li.one~li{
+			color: green;
+		}
+		li.one~div{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li class="one" test="hello">1</li>
+		<li test="helloworld">2</li>
+		<li test="abchello">3</li>
+		<li test="abcdehellofg">4</li>
+		<li test="hello">5</li>
+		<li test="hello">6</li>
+		<li test="hello">7</li>
+		<li test="hello">8</li>
+		<div>10</div>
+		<div>11</div>
+	</ul>
+	<div>
+		<span>span1</span>
+		<p>p1</p>
+		<span>span2</span>
+		<p>p2</p>
+		<span>span3</span>
+		<p>p3</p>
+		<span>span4</span>
+		<p>p4</p>
+		<span>span5</span>
+		<p>p5</p>
+	</div>
+	<div class="onlyChild"><p>我是p1</p></div>
+	<div class="onlyChild"><p>我是p2</p></div>
+	<input type="text">
+	<input type="text" disabled>
+	<input type="checkbox" checked>
+</body>
+</html>

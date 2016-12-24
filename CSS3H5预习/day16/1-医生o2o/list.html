@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta content="" name="description">
+<meta content="" name="author">
+<link href="../../favicon.ico" rel="icon">
+<title>医生在线</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" /> 
+<meta name="robots" content="all" />
+<link type="text/css" rel="stylesheet" href="css/global.css"> 
+<!-- 加载更多 -->
+<link rel="stylesheet" type="text/css" href="css/scrollbar.css">
+<script type="application/javascript" src="js/iscroll.js"></script>
+<script type="text/javascript">
+var myScroll,
+	pullDownEl, pullDownOffset,
+	pullUpEl, pullUpOffset,
+	generatedCount = 0;
+
+/**
+ * 下拉刷新 （自定义实现此方法）
+ * myScroll.refresh();		// 数据加载完成后，调用界面更新方法
+ */
+function pullDownAction () {
+	setTimeout(function () {	// <-- Simulate network congestion, remove setTimeout from production!
+	/* 	var el, li, i;
+		el = document.getElementById('thelist');
+
+		for (i=0; i<3; i++) {
+			li = document.createElement('li');
+			li.innerText = 'Generated row ' + (++generatedCount);
+			el.insertBefore(li, el.childNodes[0]);
+		} */
+		window.location.reload();
+		myScroll.refresh();		//数据加载完成后，调用界面更新方法   Remember to refresh when contents are loaded (ie: on ajax completion)
+	}, 1000);	// <-- Simulate network congestion, remove setTimeout from production!
+}
+
+/**
+ * 滚动翻页 （自定义实现此方法）
+ * myScroll.refresh();		// 数据加载完成后，调用界面更新方法
+ */
+function pullUpAction () {
+        var pageNumber=$("#pageNumber").val();
+	 	var li="";
+        $.ajax({
+		url : "/pages/jxq/index/do.jsp?method=zixunJSON&categoryId=12450&pageNumber="+pageNumber,
+		type : "post",
+		dataType : "json",
+		success : function(jsondatas){
+			setTimeout(function () {	// <-- Simulate network congestion, remove setTimeout from production!
+				
+			   myScroll.refresh();		// 数据加载完成后，调用界面更新方法 Remember to refresh when contents are loaded (ie: on ajax completion)
+			}, 1000);	// <-- Simulate network congestion, remove setTimeout from production!
+		},error: function(e) {
+			alert(e.responseText);
+		}
+	});
+}
+
+/**
+ * 初始化iScroll控件
+ */
+function loaded() {
+	pullDownEl = document.getElementById('pullDown');
+	pullDownOffset = pullDownEl.offsetHeight;
+	pullUpEl = document.getElementById('pullUp');
+	pullUpOffset = pullUpEl.offsetHeight;
+
+	myScroll = new iScroll('wrapper', {
+		scrollbarClass: 'myScrollbar', /* 重要样式 */
+		useTransition: true, /* 此属性不知用意，本人从true改为false */
+		topOffset: pullDownOffset,
+		onRefresh: function () {
+			if (pullDownEl.className.match('loading')) {
+				pullDownEl.className = '';
+				pullDownEl.querySelector('.pullDownLabel').innerHTML = '下拉刷新...';
+			} else if (pullUpEl.className.match('loading')) {
+				pullUpEl.className = '';
+				pullUpEl.querySelector('.pullUpLabel').innerHTML = '上拉加载更多...';
+			}
+		},
+		onScrollMove: function () {
+			if (this.y > 5 && !pullDownEl.className.match('flip')) {
+				pullDownEl.className = 'flip';
+				pullDownEl.querySelector('.pullDownLabel').innerHTML = '松手开始更新...';
+				this.minScrollY = 0;
+			} else if (this.y < 5 && pullDownEl.className.match('flip')) {
+				pullDownEl.className = '';
+				pullDownEl.querySelector('.pullDownLabel').innerHTML = '下拉刷新...';
+				this.minScrollY = -pullDownOffset;
+			} else if (this.y < (this.maxScrollY - 5) && !pullUpEl.className.match('flip')) {
+				pullUpEl.className = 'flip';
+				pullUpEl.querySelector('.pullUpLabel').innerHTML = '松手开始更新...';
+				this.maxScrollY = this.maxScrollY;
+			} else if (this.y > (this.maxScrollY + 5) && pullUpEl.className.match('flip')) {
+				pullUpEl.className = '';
+				pullUpEl.querySelector('.pullUpLabel').innerHTML = '上拉加载更多...';
+				this.maxScrollY = pullUpOffset;
+			}
+		},
+		onScrollEnd: function () {
+			if (pullDownEl.className.match('flip')) {
+				pullDownEl.className = 'loading';
+				pullDownEl.querySelector('.pullDownLabel').innerHTML = '加载中...';
+				pullDownAction();	// Execute custom function (ajax call?)
+			} else if (pullUpEl.className.match('flip')) {
+				pullUpEl.className = 'loading';
+				pullUpEl.querySelector('.pullUpLabel').innerHTML = '加载中...';
+				pullUpAction();	// Execute custom function (ajax call?)
+			}
+		}
+	});
+
+	setTimeout(function () { document.getElementById('wrapper').style.left = '0'; }, 800);
+}
+
+//初始化绑定iScroll控件
+document.addEventListener('DOMContentLoaded', loaded, false);
+</script>
+</head>
+
+<body>
+<!-- 头部开始 -->
+<link type="text/css" rel="stylesheet" href="css/header.css">
+	<header class="wb100 header">
+		<article> <a class="return" href="wenzilist.html"><img src="images/img05.png"></a>医生在线</article>
+	</header>
+<!-- 头部结束 -->
+<!--列表开始 -->	
+<link type="text/css" rel="stylesheet" href="css/list.css">>
+    <input type="hidden" id="pageNumber" value="2">
+	<section class="wb100 dis-ib" id="wrapper">
+		<div id="scroller">
+			<div id="pullDown"> <span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span> </div>
+			<ul id="thelist" >             
+				<div class="keshi">普通外科</div>
+			<!--循环体-->
+					<li class="wb95 doctor dis-ib pb1">
+						<a class="dis-b wb100" href="content.html">
+							<dl class="wb95">
+								<dt><img src="images/images08.jpg"></dt>
+								<dd>
+									<h2>王小婷<span>外科医师</span></h2>
+									<p class="c-454545">中山大学附属第三医院</p>
+									<p class="zhuanchang c-7e7e7e">专长：心脑血管，高血压的诊治，冠心病，先天性心脏病。先天性心脏病。先天性心脏病。先天性心脏病。先天性心脏病。先天性心脏病。先天性心脏病。先天性心脏病。枷加格达奇</p>
+								</dd>
+							</dl>
+						</a>
+					<div class="techang pt1"><a href="#">外科医师</a><a href="#">博士后</a><a href="#">博士后</a></div>
+					</li>			
+			<!--循环体--> 
+			<!--循环体-->
+					<li class="wb95 doctor dis-ib pb1">
+						<a class="dis-b wb100" href="content.html">
+							<dl class="wb95">
+								<dt><img src="images/images08.jpg"></dt>
+								<dd>
+									<h2>王小婷<span>外科医师</span></h2>
+									<p class="c-454545">中山大学附属第三医院</p>
+									<p class="zhuanchang c-7e7e7e">专长：心脑血管，高血压的诊治，冠心病，先天性心脏病。先天性心脏病。先天性心脏病。先天性心脏病。先天性心脏病。先天性心脏病。先天性心脏病。先天性心脏病。枷加格达奇</p>
+								</dd>
+							</dl>
+						</a>
+					<div class="techang pt1"><a href="#">博士后</a><a href="#">博士后</a></div>
+					</li>			
+			<!--循环体--> 
+			<!--循环体-->
+					<li class="wb95 doctor dis-ib pb1">
+						<a class="dis-b wb100" href="content.html">
+							<dl class="wb95">
+								<dt><img src="images/images08.jpg"></dt>
+								<dd>
+									<h2>王小婷<span>外科医师</span></h2>
+									<p class="c-454545">中山大学附属第三医院</p>
+									<p class="zhuanchang c-7e7e7e">专长：心脑血管，高血压的诊治，冠心病，先天性心脏病。先天性心脏病。先天性心脏病。先天性心脏病。先天性心脏病。先天性心脏病。先天性心脏病。先天性心脏病。枷加格达奇</p>
+								</dd>
+							</dl>
+						</a>
+					<div class="techang pt1"><a href="#">外科医师</a><a href="#">博士后</a><a href="#">博士后</a></div>
+					</li>			
+			<!--循环体--> 
+			<!--循环体-->
+					<li class="wb95 doctor dis-ib pb1">
+						<a class="dis-b wb100" href="content.html">
+							<dl class="wb95">
+								<dt><img src="images/images08.jpg"></dt>
+								<dd>
+									<h2>王小婷<span>外科医师</span></h2>
+									<p class="c-454545">中山大学附属第三医院</p>
+									<p class="zhuanchang c-7e7e7e">专长：心脑血管，高血压的诊治，冠心病，先天性心脏病。先天性心脏病。先天性心脏病。先天性心脏病。先天性心脏病。先天性心脏病。先天性心脏病。先天性心脏病。枷加格达奇</p>
+								</dd>
+							</dl>
+						</a>
+					<div class="techang pt1"><a href="#">外科医师</a><a href="#">主治专家</a><a href="#">大学教教授</a><a href="#">博士后</a><a href="#">博士后</a><a href="#">博士后</a></div>
+					</li>			
+			<!--循环体--> 
+			<!--循环体-->
+					<li class="wb95 doctor dis-ib pb1">
+						<a class="dis-b wb100" href="content.html">
+							<dl class="wb95">
+								<dt><img src="images/images08.jpg"></dt>
+								<dd>
+									<h2>王小婷<span>外科医师</span></h2>
+									<p class="c-454545">中山大学附属第三医院</p>
+									<p class="zhuanchang c-7e7e7e">专长：心脑血管，高血压的诊治，冠心病，先天性心脏病。先天性心脏病。先天性心脏病。先天性心脏病。先天性心脏病。先天性心脏病。先天性心脏病。先天性心脏病。枷加格达奇</p>
+								</dd>
+							</dl>
+						</a>
+					<div class="techang pt1"><a href="#">外科医师</a><a href="#">主治专家</a><a href="#">博士后</a><a href="#">博士后</a></div>
+					</li>			
+			<!--循环体--> 
+			<!--循环体-->
+					<li class="wb95 doctor dis-ib pb1">
+						<a class="dis-b wb100" href="content.html">
+							<dl class="wb95">
+								<dt><img src="images/images08.jpg"></dt>
+								<dd>
+									<h2>王小婷<span>外科医师</span></h2>
+									<p class="c-454545">中山大学附属第三医院</p>
+									<p class="zhuanchang c-7e7e7e">专长：心脑血管，高血压的诊治，冠心病，先天性心脏病。先天性心脏病。先天性心脏病。先天性心脏病。先天性心脏病。先天性心脏病。先天性心脏病。先天性心脏病。枷加格达奇</p>
+								</dd>
+							</dl>
+						</a>
+					<div class="techang pt1"><a href="#">外科医师</a><a href="#">主治专家</a><a href="#">大学教教授</a><a href="#">博士后</a><a href="#">博士后</a><a href="#">博士后</a></div>
+					</li>			
+			<!--循环体--> 
+			<!--循环体-->
+					<li class="wb95 doctor dis-ib pb1">
+						<a class="dis-b wb100" href="content.html">
+							<dl class="wb95">
+								<dt><img src="images/images08.jpg"></dt>
+								<dd>
+									<h2>王小婷<span>外科医师</span></h2>
+									<p class="c-454545">中山大学附属第三医院</p>
+									<p class="zhuanchang c-7e7e7e">专长：心脑血管，高血压的诊治，冠心病，先天性心脏病。先天性心脏病。先天性心脏病。先天性心脏病。先天性心脏病。先天性心脏病。先天性心脏病。先天性心脏病。枷加格达奇</p>
+								</dd>
+							</dl>
+						</a>
+					<div class="techang pt1"><a href="#">外科医师</a><a href="#">主治专家</a><a href="#">大学教教授</a><a href="#">博士后</a><a href="#">博士后</a><a href="#">博士后</a></div>
+					</li>			
+			<!--循环体--> 
+			<!--循环体-->
+					<li class="wb95 doctor dis-ib pb1">
+						<a class="dis-b wb100" href="content.html">
+							<dl class="wb95">
+								<dt><img src="images/images08.jpg"></dt>
+								<dd>
+									<h2>王小婷<span>外科医师</span></h2>
+									<p class="c-454545">中山大学附属第三医院</p>
+									<p class="zhuanchang c-7e7e7e">专长：心脑血管，高血压的诊治，冠心病，先天性心脏病。先天性心脏病。先天性心脏病。先天性心脏病。先天性心脏病。先天性心脏病。先天性心脏病。先天性心脏病。枷加格达奇</p>
+								</dd>
+							</dl>
+						</a>
+					<div class="techang pt1"><a href="#">外科医师</a><a href="#">主治专家</a><a href="#">大学教教授</a><a href="#">博士后</a><a href="#">博士后</a><a href="#">博士后</a></div>
+					</li>			
+			<!--循环体--> 
+				<div id="thelistdiv"></div>
+			</ul>
+		
+			<div id="pullUp">
+				<span class="pullUpIcon"></span>
+				<span class="pullUpLabel" >上拉加载更多...</span>
+			</div>
+		</div>
+	</section>
+    <!--end-->
+	
+	<!--底部开始-->
+	<link rel="stylesheet" type="text/css" href="css/footer.css">
+	<footer class="dis-ib">
+		<a class="zixun" href="#">免费咨询</a>
+		<a class="menzhen" href="#">门诊服务</a>
+		<a class="shoushu" href="#">手术服务</a>
+		
+	</footer>
+	<!--底部结束-->
+</body>
+</html>

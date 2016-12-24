@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		section{
+			width: 500px;
+			height: 330px;
+			margin:0 auto;
+			position: relative;
+			/*border: 1px solid green;*/
+		}
+		img{
+			width: 100%;
+			height: 100%;
+			transition: all 0.5s 0.5s ease-in-out;
+		}
+		.info1{
+			position: absolute;
+			left: 20%;
+			top: 20%;
+			font-size: 26px;
+			font-weight: 700;
+			transition: all 0.5s 0.5s ease-in-out;
+			color: red;
+		}
+		figcaption{
+			position: absolute;
+			bottom: 0;
+			transition: all 0.5s 0.5s ease-in-out;
+		}
+		
+		section:hover .info1{
+			transform: translateY(30px);
+		}
+		section:hover figcaption{
+			transform: translateY(-20px) translate(-20px);
+		}
+		section:hover img{
+			transform: translateX(-30px);
+			opacity: 0.5;
+		}
+	</style>
+</head>
+<body>
+	<section>
+		
+		<figure>
+			<img src="timg.jpg" alt="马尔代夫">
+			<p class="info1">看我72变!</p>
+			<figcaption>
+				马尔代夫东北与斯里兰卡相距675公里，北部与印度的米尼科伊岛相距约113公里，马尔代夫南部的赤道海峡和一度半海峡为海上交通要道。
+			</figcaption>
+		</figure>
+	</section>
+</body>
+</html>

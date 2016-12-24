@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+    *{
+    	padding: 0;
+    	margin: 0
+    }
+	  @font-face{
+			font-family:font1; 
+			src: url("Fontin_Sans_B_45b.otf");
+	  }
+	  p{
+				width: 150px;
+				min-height: 100px;
+				border: 1px solid #f66;
+	  }
+      p{
+      	font-size: 29px;
+      	text-shadow:3px 3px 1px pink; /* 第一个参数是x偏移，第二个是y的偏移，第三个模糊值（可选） 第四个 阴影的颜色 */
+      	word-break:break-all; /* break-word 前着是允许单词换行，并且单词可以与其他单词同一行，后者不允许与其他单词同一行，效果与word-wrap：break-word 一样*/
+      }
+      .font{
+      	font-size: 40px;
+      	font-family: font1
+      }
+      .size{
+      	height: 500px;
+      	background: url(sky.jpg) no-repeat;
+      	border: 1px solid red;
+      	background-size: 100px 200px; /*  百分百的时候，相对于背景宽度来计算的  cover contain :保持图片的宽高比，把整张图都放到背景里面，放大到图片的最大宽高
+        cover：保持宽高比，充满整个背景，缩放到图片最小的宽高 
+      	*/
+      }
+	</style>
+</head>
+<body>
+	<p>倾城我上马</p>
+<!-- 	<p>我们都是小朋友，不要坑中单，好好的在上单发育，请打野的同学多来上单gank</p> -->
+<!-- <p>Today is veryveryveryveryveryveryveryveryveryveryveryvery nice.</p>
+<span class="font">Today is veryveryveryveryveryveryveryveryveryveryveryvery nice.</span> -->
+<div class="size"></div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>h5新增元素</title>
+</head>
+<body>
+	<input list="words" autocomplete="on">
+	<datalist id="words">
+		<option value="浏览器"></option>
+		<option value="fixbox"></option>
+		<option value="chorme"></option>
+		<option value="opera"></option>
+		<option value="sofari"></option>
+		<option value="sougou"></option>
+		
+	</datalist>
+	<mark>注意</mark>
+	<canvas style="width: 200px;height: 200px;border: 1px solid red;"></canvas><!-- 本身并没有行为，即什么也不做，只是给js提供了一块画布 -->
+	 <form oninput="x.value=parseInt(a.value)+parseInt(b.value)">0
+		<input type="range" id="a" value="50">100
+		+<input type="number" id="b" value="50">
+		=<output name="x" for="a b"></output>
+	</form>
+	<form action="">
+		<!-- <input type="email" required> -->
+		<!-- <input type="url" value="https://www.baidu.com"> -->
+		<!-- <input type="number" min="10" max="25" step="2" value="9"> -->
+		<!-- <input type="range" value="25" min="10" max="99" step="2"> -->
+		<!-- <input type="date"> -->
+		<!-- <input type="search"> -->
+		<input type="color">
+		<input type="submit">
+	</form>
+	<form action="">
+		<input type="text" pattern="[0-9][a-z]{3}" placeholder="请输入0-9一个数字，3个小写字母">
+		<input type="submit">
+	</form>
+	<form action="" novalidate >
+		<input type="url" required>
+		<!-- <input type=“email” multiple/> -->
+		<input type="submit">
+	</form>
+
+
+	<script type="text/javascript">
+		var range  = document.querySelector("#a");//百度querySelector
+		range.addEventListener("input",function(){
+      	 console.log(this.value)
+	})
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin:0;
+			padding: 0;
+		}
+		/*@font-face{
+			font-family: font1;
+			src:url("Fontin_Sans_B_45b.otf");
+		}*/
+		/*.fontFace{
+			font-family: font1;
+			font-size:26px;
+		}*/
+		/*.textShadow{
+			font-size: 29px;
+			text-shadow:3px 3px 1px pink;
+		}*/
+		.wordBreak{
+			width: 200px;
+			height: 200px;
+			border: 1px solid green;
+			word-break: break-word;
+			/*word-break:break-all;*/
+		}
+		.backgroundSize{
+			width:500px;
+			height: 500px;
+			padding: 30px;
+			border: 10px dashed red;
+			background: url("bg.png") no-repeat;
+			background-size: 100% 100%;
+			/*background-size: contain;*/
+			/*background-size: cover;*/
+			background-clip: content-box;
+			background-clip: padding-box;
+			background-clip: border-box;
+
+		}
+		.borderRadius{
+			width: 100px;
+			height: 100px;
+			border: 1px solid red;
+			border-radius: 100px;
+			border-radius: 10px 30px 60px;
+			border-radius: 10px 30px 50px 70px;
+			border-radius: 10px 30px 50px 70px/20px 30px 40px 50px;
+		}
+		.gradient{
+			width: 200px;
+			height: 200px;
+			border: 1px solid green;
+			background: -webkit-gradient(linear,0 0,200 200,from(red),to(green));
+			background: -webkit-linear-gradient(top,red,blue);
+			background: -webkit-linear-gradient(90deg,red,blue);
+		}
+	</style>
+</head>
+<body>
+	<!-- <p class="fontFace">@@$$停车坐爱枫林晚</p> -->
+	<!-- <p class="textShadow">离离原上草</p> -->
+	<!-- <p class="wordBreak">你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好你好你好你好你好你好你好你好</p> -->
+	<p class="wordBreak">Today is veryveryveryveryveryveryvery nice!</p>
+	<div class="backgroundSize"></div>
+	<div class="borderRadius"></div>
+	<div class="gradient"></div>
+
+</body>
+</html>

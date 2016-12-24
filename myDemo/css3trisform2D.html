@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css32D变形transform各属性，过渡transtion</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			border: 1px solid red;
+		}
+		.translate{
+			transform: translate(30px,50px);
+		}
+		.rotate{
+			transform-origin: left top;
+			transform: rotate(45deg) scale(1.5);/*transform属性可以写多个value值，只能这样写，不然后面的会覆盖前面的*/
+		}
+		.scale{
+			transform: scale(1.5);
+			transform: scale(1.5,2);
+		}
+		.skew{
+			transform: skew(38deg,40deg);
+		}
+		.matrix{
+			transform: matrix(2.5,1,-1,2,330,40);/*变换矩阵，所有参数不带单位，注意第二个与第三个参数的值用正弦值或余弦值表示*/
+		}
+		.transtion{
+			/*transition-property:all;*/
+			/*transition-duration:1s;*/
+			/*transition-delay:2s;*/
+			/*transition-timing-function:linear;*//*默认是ease*/
+			/*ease：缓解效果，等同于cubic-bezier(0.25,0.1,0.25,1.0)函数，既立方贝塞尔。
+			linear：线性效果，等同于cubic-bezier(0.0,0.0,1.0,1.0)函数。
+			ease-in：渐显效果，等同于cubic-bezier(0.42,0,1.0,1.0)函数。
+			ease-out：渐隐效果，等同于cubic-bezier(0,0,0.58,1.0)函数。
+			ease-in-out：渐显渐隐效果，等同于cubic-bezier(0.42,0,0.58,1.0)函数。
+			cubic-bezier：特殊的立方贝塞尔曲线效果。*/
+			/*transition-timing-function: linear | ease | ease-in | ease-out | ease-in-out | cubic-bezier(<number>, <number>, <number>, <number>)[ ,linear | ease | ease-in | ease-out | ease-in-out | cubic-bezier(<number>, <number>, <number>, <number>) ]* ;设置动画执行的方式（缓动效果）。*/
+			transition: all 1s 2s linear;/*复合写法*/
+		}
+		.transtion:hover{
+			transform: translate(100px,100px);
+		}
+	</style>
+</head>
+<body>
+	<!-- <div class="translate">
+		我是translate
+	</div>
+	<div class="rotate">
+		我是rotate
+	</div>
+	<div class="scale">
+		我是scale
+	</div>
+	<div class="skew">
+		我是skew
+	</div>
+	<div class="matrix">
+		我是matrix
+	</div> -->
+	<div class="transtion">
+		我是transtion
+	</div>
+</body>
+</html>

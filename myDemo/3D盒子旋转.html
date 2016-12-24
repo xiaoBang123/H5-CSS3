@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>3d盒子旋转</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		#box{
+			width: 200px;
+			height: 200px;
+			/*border: 1px solid green;*/
+			margin:150px auto;
+			position: relative;
+			perspective: 800px;
+			transform-style: preserve-3d;
+			
+			
+			-webkit-animation: rotate 20s infinite;
+
+		}
+		@-webkit-keyframes rotate{/*前缀-webkit-表示webkit内核浏览器（Chrome、Safari和变心的opera），以上代码定义了一个动画，名叫rotate*/
+	from{transform: rotateX(0deg) rotateY(0deg);}
+	/*旋转:rotate,缩放:scale,倾斜:skew,移动:translate,
+	 在CSS3中，可以利用transform功能来实现文字或图像的旋转、缩放、倾斜、移动这四种类型的变形处理，
+	 用法：transform: rotate(45deg);
+	共一个参数“角度”，单位deg为度的意思，正数为顺时针旋转，负数为逆时针旋转，上述代码作用是顺时针旋转45度。*/
+	to{transform: rotateX(360deg) rotateY(360deg);}
+}
+		.cover{
+			width: 200px;
+			height: 200px;
+			font-size: 48px;
+			font-weight: 700;
+			/*border: 1px solid red;*/
+			text-align: center;
+			line-height: 200px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			margin-left: -100px;
+			margin-top: -100px;
+			transition: all 0.5s 0.1s linear;
+			opacity: 0.8
+
+		}
+		img{
+			width: 100%;
+			height: 100%;
+		}
+		#box>.cover:nth-child(1){
+			color: green;
+			transform: translateZ(100px);
+
+		}
+		#box>.cover:nth-child(2){
+			color: red;
+			transform: rotateY(90deg) translateZ(100px);
+			
+		}
+		#box>.cover:nth-child(3){
+			color: grey;
+			transform: translateZ(-100px) rotateY(180deg);
+			
+		}
+		#box>.cover:nth-child(4){
+			color: pink;
+			transform: rotateY(-90deg) translateZ(100px);
+			
+		}
+		#box>.cover:nth-child(5){
+			color: blue;
+			transform: rotateX(90deg) translateZ(100px);
+			
+		}
+		#box>.cover:nth-child(6){
+			color: black;
+			transform: rotateX(-90deg) translateZ(100px);
+			
+		}
+		#box:hover .cov1{
+			transform: translateZ(200px);
+		}
+		#box:hover .cov2{
+			transform: translateX(200px) rotateY(90deg);
+		}
+		#box:hover .cov3{
+			transform: translateZ(-200px) rotateY(180deg);
+		}
+		#box:hover .cov4{
+			transform: translateX(-200px) rotateY(-90deg);
+		}
+		#box:hover .cov5{
+			transform: translateY(-200px) rotateX(90deg);
+		}
+		#box:hover .cov6{
+			transform: translateY(200px) rotateX(-90deg) ;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<div class="cover cov1"><img src="img/5.jpg" alt="1"></div>
+		<div class="cover cov2"><img src="img/2.jpg" alt="2"></div>
+		<div class="cover cov3"><img src="img/3.jpg" alt="3"></div>
+		<div class="cover cov4"><img src="img/4.jpg" alt="4"></div>
+		<div class="cover cov5"><img src="img/1.jpg" alt="5"></div>
+		<div class="cover cov6"><img src="img/6.jpg" alt="6"></div>
+	</div>
+</body>
+</html>

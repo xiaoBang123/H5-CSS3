@@ -1,0 +1,43 @@
+@charset "utf-8";
+/* CSS Document */
+.photo{ float:left; width:90px; margin-right:3%; }
+.photo img{ width:100%; border-radius:100%; border:1px solid #efefef;}
+.jianjie {display:table;}
+.jianjie p {font-size:.9em; line-height:1.4em;}
+
+h2{ font-size:1.1em; margin-bottom:1.5%;  font-weight:100; color:#333;}
+h2 span{ font-size:.9em; padding-left:10px; color:#595757;}
+
+.techang { border-top:1px solid #dcdddd; padding:1% 1% 0; height:auto;}
+.techang a { padding:1% 3%; background:#6dc7ff; border-radius:5px; float:left; margin:1%; color:#fff; font-size:.9em; }
+.neirong{margin-bottom:50px;}
+.neirong p{text-indent:24px; line-height:1.9em; color:#7e7e7e; font-size:.9em;}
+.neirong .bt{font-size:.95em; font-weight:100; color:#333; text-indent:0;}
+@media only screen and (min-device-width: 375px){
+.photo{ width:93px; float:left;  margin-right:3%; }
+h2{ font-size:1.25em;}
+h2 span{ font-size:.95em;}
+.jianjie p {font-size:.95em; line-height:1.5em;}
+.techang a {font-size:.95em;}
+.neirong p{text-indent:24px; line-height:1.9em; color:#7e7e7e; font-size:.95em;}
+.neirong .bt{font-size:1em; color:#333; font-weight:100; text-indent:0;}
+}
+
+@media only screen and (min-device-width: 414px){
+.photo{ width:95px; float:left; margin-right:3%; }
+h2{ font-size:1.2em;}
+h2 span{ font-size:.95em;}
+.jianjie p {font-size:.95em;  line-height:1.5em;}
+.techang a {font-size:.95em;}
+.neirong p{text-indent:24px; line-height:1.9em; color:#7e7e7e; font-size:1em;}
+.neirong .bt{font-size:1.05em; color:#333; font-weight:100; text-indent:0;}
+}
+@media only screen and (min-device-width: 1024px){
+.photo{ width:230px; }
+h2 { font-size:2.5em;}
+h2 span{ font-size:.9em; }
+.jianjie p {font-size:2em; line-height:1.6em;}
+.techang a {font-size:2em;}
+.neirong p{text-indent:24px; line-height:1.9em; color:#7e7e7e; font-size:2em;}
+.neirong .bt{font-size:2.5em; color:#333; font-weight:100; text-indent:0;}
+}

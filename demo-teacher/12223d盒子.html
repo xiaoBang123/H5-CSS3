@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+       *{
+	   	 margin: 0;
+	   	 padding: 0
+	   }
+	   .box{
+	      margin: 0 auto;
+          width: 500px;
+          height: 500px;
+          margin-top: 120px;
+          margin-bottom: 40px;
+          position: relative;
+          border:1px solid blue;
+          perspective:800px;
+          transform-style:preserve-3d;  /* 只管子节点不管孙子 */
+	   }
+	   .face{
+	   	 position: absolute;
+	   	 height: 300px;
+	   	 width: 300px;
+	   	 font-size: 80px;
+	   	 line-height: 300px;
+	   	 text-align: center;
+	   	 left: 50%;
+	   	 top: 50%;
+	   	 margin-left:-150px;
+	   	 margin-top: -150px; 
+	   	 color:green;
+	   }
+	   .box >.face:nth-child(1){
+	   	 border: 1px solid red;
+	   	 transform:translateZ(150px);
+	   }
+	    .box >.face:nth-child(2){
+	   	 border: 1px solid pink;
+	   	 color:red;
+	   	 transform: rotateY(90deg) translateZ(150px); /*  在3d场近中使用了rotate，Z周也会旋转 */
+	   }
+	    .box >.face:nth-child(3){
+	   	 border: 1px solid yellow;
+	   	 color:yellow;
+	   	 transform:rotateY(-180deg) translateZ(150px);
+	   }
+	    .box >.face:nth-child(4){
+	   	 border: 1px solid blue;
+	   	 color:blue;
+	   	 transform: rotateY(-90deg) translateZ(150px); 
+	   }
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="face">1</div>
+		<div class="face">2</div>
+		<div class="face">3</div>
+	    <div class="face">4</div>
+	</div>
+</body>
+</html>

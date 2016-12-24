@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	  *{
+	  	padding: 0;
+	  	margin:0;
+	  }
+       .box{
+       	 height: 200px;
+	   	 width: 200px;
+	   	 font-size: 80px;
+	   	 text-align: center;
+	   	 background: pink;
+	   	 position: absolute;
+	   	 animation-name:pao;
+	   	 animation-duration:2.3s;
+	   	 animation-delay:1s;
+	   	 /* animation-iteration-count:infinite;  *//*这个是表述循环次数，可以跟直接的次数，还可以跟infinite*/
+	   	 /* animation-direction:alternate; */
+	   	 animation-timing-function:ease-in-out;
+	   	 animation-fill-mode:forwards;
+       }
+      .start{
+      	animation-play-state:running;
+      }
+
+      .stop{
+      	animation-play-state:paused;
+      }
+      /*  定义一个动画 */
+
+      @keyframes pao{
+         from{left:0;}
+         to{left:400px;}
+      }
+	</style>
+</head>
+<body>
+	<div class="box">
+        我是盒子
+	</div>
+	<button id="start">继续</button>
+	<button id="stop">暂停</button>
+</body>
+<script>
+	
+	var boxDom = document.querySelector(".box"),
+	    startDom = document.querySelector("#start"),
+	    stopDom = document.querySelector("#stop");
+
+	    startDom.addEventListener("click",function(){
+	    	var cl = boxDom.classList;
+	    	if (cl.contains('stop')) {
+	    		cl.remove('stop')
+	    	};
+	    	cl.add('start');
+	    })
+
+	    stopDom.addEventListener("click",function(){
+	    	var cl = boxDom.classList;
+	    	if (cl.contains('start')) {
+	    		cl.remove('start')
+	    	};
+	    	cl.add('stop')
+	    })
+</script>
+</html>

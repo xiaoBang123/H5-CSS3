@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	  *{
+	  	margin: 0;
+	  	padding: 0
+	  }
+	  div{
+	  	height: 100px;
+	  	width: 100px;
+	  	border: 1px solid red;
+/* 	  	transition-property:all;
+transition-duration:1.3s; 注意时间单位是s
+transition-delay:0s;
+transition-timing-function: ease-in; */
+       transition:all 0.3s 1s ease-in;  /* 第一个变化的属性，变换的时间，延迟，变换的方式 */
+	/*     tranform:translate(0); */
+	  }
+      .translte{
+        transform:translate(100px,50px) rotate(38deg); /* 浏览器前缀在ie9 是需要添加的-ms- */
+      }
+      .rotate{
+      	/* transform-origin:right top; */
+      	transform-origin:50% 0;
+      	transform:rotate(38deg);/* 默认是顺时针方向转的，允许有负值存在（逆时针） 注意单位 deg 度数单位 */
+      }
+      .scale{
+      	transform:scale(1.5,3); /* 沿着中心点 50%，50%的位置 一个参数 x，y同时缩放某一个值；2个参数，第一个：x轴，第二个：y轴 */
+      }
+      .skew{
+        transform:skew(38deg,66deg); /*正数默认是左倾，负数是右倾*/
+      }
+      .matrix{
+      	transform:matrix(1.5,0,0,1,100,50); /*注意在matrix里面都是不带单位的*/
+      }
+      .transition:hover{
+      	transform:translate(250px,0);
+      }
+	</style>
+</head>
+<body>
+<!-- 	<div class="translte">
+	我是translate
+</div>
+<div class="rotate">
+	我是rotate
+</div>
+<div class="scale">
+	我是scale
+</div>
+<div class="skew">
+	我是scale
+</div>
+<div class="matrix">
+	我是matrix
+</div> -->
+	<hr>
+
+	<div class="transition">
+		 我是transition
+	</div>
+</body>
+</html>

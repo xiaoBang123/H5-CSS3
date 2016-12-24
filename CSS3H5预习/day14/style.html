@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	*{margin:0;padding:0;}
+	#bt{height:400px;width:400px;background:#ccc;position: absolute;left:400px;top:200px;
+     -webkit-animation:rn 7s linear infinite;
+	}
+	.xx{height:400px;width:400px;position:absolute;border-radius: 50%;opacity: 0.8;}
+     .x1{background: #336;}
+     .x2{background: #698;}
+     .x3{background: #754;}
+     .x4{background: #998;}
+     .x5{background: #679;}
+     .x6{background: #633;}
+     .x7{background: #569;}
+     .x8{background: #389;}
+
+
+	
+	.box{ line-height: 400px;text-align: center;opacity:0.6;height:400px;width:400px;background:#ccc;position:absolute;left:400px;top:200px;border-radius: 20px;
+		-webkit-animation:move 10s linear infinite;
+		
+	}
+	
+
+	.box1{background:#000;height:400px;width:400px;background:#336;position:absolute;left:400px;top:200px;opacity: 0.8;border-radius: 50px;opacity: 0.4;
+       -webkit-animation:moves 5s linear infinite;
+	}
+	
+	@-webkit-keyframes move{
+			from{transform:rotate(0deg);}
+			to{transform:rotate(360deg);
+			}
+		}
+		@-webkit-keyframes rn{
+			from{transform:rotate(0deg);}
+			to{transform:rotate(-360deg);
+			}
+		}
+		
+	@-webkit-keyframes moves{
+			from{transform:rotate(0deg);}
+			to{transform:rotate(-360deg);
+			}
+	</style>
+	<script>
+	window.onload=function(){
+      var dv=document.getElementById('bt').getElementsByTagName('div')
+      var leng=dv.length
+     
+      var per=360/leng;
+      for( var i=0;i<leng;i++){
+43
+     dv[i].style.webkitTransform = "rotate("+per*i+"deg) translateY(200px)";
+      }
+  }
+	</script>
+</head>
+<body>
+	<div id="bt">
+		<div class="xx x1"></div>
+		<div class="xx x2"></div>
+		<div class="xx x3"></div>
+		<div class="xx x4"></div>
+		<div class="xx x5"></div>
+		<div class="xx x6"></div>
+		<div class="xx x7"></div>
+		<div class="xx x8"></div>
+	</div>
+	<div class="box">5</div>
+	<div class="box1">6</div>
+</body>
+</html>

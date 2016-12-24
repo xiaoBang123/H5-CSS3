@@ -1,0 +1,42 @@
+@charset "utf-8";
+/* CSS Document */
+footer { width:100%; padding:2% 0; background: #fff; border-top:1px solid #d2d2d2; position: fixed; bottom: 0; left: 0; width: 100%;}
+footer a{ display:inline-block; font-size:.6em; color:#727171; padding-top:25px; float:left; text-align:center; width:33.3%; background:#d00;}
+footer a:hover{color:#098fe4;}
+footer a:visit{background:#fff;}
+.zixun{background:url(../images/img06.png) no-repeat center top; background-size:23px;}
+.zixun:hover{background:url(../images/img066.png) no-repeat center top; background-size:23px;}
+.menzhen{background:url(../images/img07.png) no-repeat center top; background-size:23px;}
+.menzhen:hover{background:url(../images/img077.png) no-repeat center top; background-size:23px; }
+.shoushu{background:url(../images/img08.png) no-repeat center top; background-size:23px;}
+.shoushu:hover{background:url(../images/img088.png) no-repeat center top; background-size:23px;}
+
+
+@media only screen and (min-device-width: 375px){
+footer a{font-size:.6em;}
+.zixun{background:url(../images/img06.png) no-repeat center top; background-size:23px;}
+.zixun:hover{background:url(../images/img066.png) no-repeat center top; background-size:23px;}
+.menzhen{background:url(../images/img07.png) no-repeat center top; background-size:23px;}
+.menzhen:hover{background:url(../images/img077.png) no-repeat center top; background-size:23px; }
+.shoushu{background:url(../images/img08.png) no-repeat center top; background-size:23px;}
+.shoushu:hover{background:url(../images/img088.png) no-repeat center top; background-size:23px;}
+}
+@media only screen and (min-device-width: 414px){
+footer a{font-size:.7em; padding-top:26px; }
+.zixun{background:url(../images/img06.png) no-repeat center top; background-size:24px;}
+.zixun:hover{background:url(../images/img066.png) no-repeat center top; background-size:24px;}
+.menzhen{background:url(../images/img07.png) no-repeat center top; background-size:24px;}
+.menzhen:hover{background:url(../images/img077.png) no-repeat center top; background-size:24px; }
+.shoushu{background:url(../images/img08.png) no-repeat center top; background-size:24px;}
+.shoushu:hover{background:url(../images/img088.png) no-repeat center top; background-size:24px;}
+}
+
+/*@media only screen and (min-device-width: 1024px){
+footer a{font-size:1.8em; padding-top:50px; }
+.zixun{background:url(../images/img06.png) no-repeat center top; background-size:45px;}
+.zixun:hover{background:url(../images/img066.png) no-repeat center top; background-size:45px;}
+.menzhen{background:url(../images/img07.png) no-repeat center top; background-size:45px;}
+.menzhen:hover{background:url(../images/img077.png) no-repeat center top; background-size:45px; }
+.shoushu{background:url(../images/img08.png) no-repeat center top; background-size:45px;}
+.shoushu:hover{background:url(../images/img088.png) no-repeat center top; background-size:45px;}
+}*/

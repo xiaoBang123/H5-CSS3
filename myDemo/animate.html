@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin:0;padding:0;}
+		#box{
+			width: 200px;
+			height: 200px;
+			background: green;
+			position: absolute;
+			pointer-events: none; /*设置当前元素鼠标点击无效*/
+			opacity: 0.8;
+
+			/*animation-name: run;
+			animation-duration: 2s;
+			animation-delay: 1s;
+			animation-iteration-count:infinite;
+			animation-direction: alternate;
+			animation-fill-mode: forwards;
+			animation-timing-function: linear;*/
+			animation:run 2s 0.1s 4 linear forwards alternate;
+
+
+		}
+		.start{
+			animation-play-state: running!important;/*这里的animation-play-state会被上面的animation覆盖掉，因为#box的权重比.start的权重高，animation的简写里面没写animation-play-state的值，但默认还是有的*/
+		}
+		.stop{
+			animation-play-state: paused!important;
+		}
+		/*定义一个动画第一种方式*/
+		/*@-webkit-keyframes run{
+			from{
+				left: 0;
+			}
+			to{
+				left: 400px;
+			}
+		}*/
+		/*定义一个动画第二种方式,要写初始状态0%，和结束状态100%。0%,25%,50%,75%,100%之间不要用逗号分开*/
+		@-webkit-keyframes run{
+			0%{
+				left: 0;
+				top: 0;
+				}
+			25%{
+				left: 400px;
+				top: 0;
+				}
+			50%{
+				left: 400px;
+				top: 400px;
+					}
+			75%{
+				left: 0;
+				top: 400px;
+				}
+			100%{
+				left: 0;
+				top: 0;
+			}
+
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+	<button>继续</button><button>暂停</button>
+	<p class="one two three">123456789</p>
+	<script>
+		var oBox = document.getElementById("box");
+		var oStart = document.getElementsByTagName("button")[0];
+		var oPaused = document.getElementsByTagName("button")[1];
+		oStart.addEventListener("click",function(){
+			if(oBox.classList.contains("stop")){
+				oBox.classList.remove("stop");
+
+			}
+			oBox.classList.add("start");
+		})
+		oPaused.addEventListener("click",function(){
+			if(oBox.classList.contains("start")){
+				oBox.classList.remove("start");
+
+			}
+			oBox.classList.add("stop");
+		})
+		var oP = document.getElementsByTagName("p")[0];
+		console.log(oP.classList.item(1));
+
+	</script>
+</body>
+</html>

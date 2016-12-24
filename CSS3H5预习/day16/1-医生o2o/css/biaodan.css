@@ -1,0 +1,156 @@
+@charset "utf-8";
+/* CSS Document */
+.biaodan{border:1px solid #dcdddd; padding:1.5% 3%;}
+.dw{position:relative;}
+.biaodan input{ border:none; color:#9c9c9c; max-width:60%; font-size:1em;  float:left;}
+.biaodan input placeholder{color:#d00;}
+.biaodan label{color:#9c9c9c; display:inline-block; min-width:17%; float:left; font-size:1em;}
+/*修改input下的placeholder的默认字体颜色*/
+:-moz-placeholder {color: #dcdddd;}
+::-moz-placeholder {color: #dcdddd;}
+input:-ms-input-placeholder,textarea:-ms-input-placeholder {color: #dcdddd;}
+input::-webkit-input-placeholder,textarea::-webkit-input-placeholder {color: #dcdddd;}
+.shengshi{padding:1% 0; border:1px solid #ccc ; font-size:.9em; color:#999;}
+
+.add{width:80px;}
+.sure {font-size:1em; font-weight:bold;}
+.sewidth {width:24%;}
+.hb85 { height:85px;}
+.msb { border:1px solid #dcdddd; line-height:24px;}
+
+/*--下拉菜单开始--*/
+.selecta span{ display:block; width:96px; overflow:hidden; float:left; font-size:16px; padding:0 20px; color:#fff; }
+
+.selectz{float:left; }
+.selectz .textc{ display:block;border:1px solid #CCC; }
+.set{ background:url(../images/btn_2.png) right center no-repeat; font-size:1em;  color:#b2b2b2;text-align:left; }
+.select{ background:url(../images/btn_1.png) right center no-repeat; }
+.new{position:absolute; background:#fff; padding:10px; border:1px solid #dcdddd;display:none; }
+.new li{color:#b2b2b2; line-height:1.5em;}
+/*--下拉菜单结束--*/
+div.select-arrow {
+	border-top: 7px solid #cfcfcf;
+	border-left: 7px solid transparent;
+	border-right: 7px solid transparent;
+	cursor: pointer;
+	height: 0px;
+	position: absolute;
+	top: 13px;
+	right: 10px;
+	width: 0px;
+	z-index: 7;
+}
+.select-set{color:#dcdddd;}
+
+div.select-arrow.reverse {
+	border-top: 7px solid transparent;
+	border-bottom: 7px solid #cfcfcf;
+	top:5px;
+}
+div.select-block {
+	background-color: #FFFFFF;
+    border-left: 1px solid #949494;
+    border-right: 1px solid #949494;
+    border-bottom: 1px solid #949494;
+    border-radius: 3px;
+    box-shadow: 0 0 2px #949494;
+    left: -25px;
+    line-height: 30px;
+    position: absolute;
+    top:31px;
+    width:78%;
+	color:#a9a9a9;
+	z-index:11;
+    margin-left:28%;
+	padding-left:2%;
+}
+
+
+.select-list li{font-size:1em; line-height:1.5em; text-align:center;}
+/*--下拉菜单结束--*/
+@media only screen and (min-device-width:320px){
+.sewidth {width:27%;}
+
+}
+@media only screen and (min-device-width:375px){
+.biaodan input{ font-size:1.05em;}
+.select-main .select-set{font-size:1.05em;}
+.biaodan label{font-size:1.05em;}
+.selectss input{ font-size:1.05em;}
+.selectss label{font-size:1.05em;}
+.select-list li{font-size:1.05em; line-height:1.6em;}
+.shengshi{ font-size:1em;}
+.sure {font-size:1.05em;}
+.sewidth { width:28.5%;}
+.add{width:85px;}
+.hb85 { height:90px;}
+.set{font-size:1.05em;}
+.new li{line-height:1.05em;font-size:1.05em;}
+
+}
+@media only screen and (min-device-width:414px){
+.biaodan input{ font-size:1.1em;}
+.select-list li{font-size:1.1em; line-height:1.7em;}
+.biaodan label{font-size:1.1em;}
+.select-main .select-set{font-size:1.1em;}
+.selectss input{ font-size:1.1em;}
+.selectss label{font-size:1.1em;}
+.shengshi{ font-size:1.05em;}
+.sure {font-size:1.1em;}
+.sewidth { width: 28%;}
+.add{width:90px;}
+.hb85 { height:95px;}
+.set{font-size:1.1em;}
+.new li{line-height:1.1em;font-size:1.1em; }
+}
+/*
+@media (min-device-width:1024px){
+.biaodan input{ font-size:2.05em;}
+.biaodan label{font-size:2.05em;}
+.select-list li{font-size:2.05em; line-height:1.9em;}
+.select-main .select-set{font-size:2.05em;}
+.selectss input{ font-size:2.05em;}
+.selectss label{font-size:2.05em;}
+.sure {font-size:2.05em;}
+.sewidth { width: 32.5%;}
+.miaoshu label{font-size:2.05em;}
+.add{width:190px;}
+.hb85 { height:135px;}
+.shengshi{border:2px solid #ccc; font-size:2em;}
+.msb { border:2px solid #dcdddd;}
+.set{font-size:2.05em;}
+.new li{line-height:2.05em;font-size:2.05em;}
+
+div.select-arrow {
+	border-top:15px solid #cfcfcf;
+	border-left: 15px solid transparent;
+	border-right: 15px solid transparent;
+	cursor: pointer;
+	height: 0px;
+	position: absolute;
+	top: 33px;
+	right: 20px;
+	width: 0px;
+	z-index: 7;
+}
+div.select-arrow.reverse {
+	border-top: 15px solid transparent;
+	border-bottom: 15px solid #cfcfcf;
+	top:11px;
+}
+
+div.select-block {
+    left: -77px;
+    line-height: 30px;
+    position: absolute;
+    top:78px;
+    width:70%;
+	color:#a9a9a9;
+	z-index:11;
+    margin-left:28%;
+	padding-left:2%;
+}
+
+}
+	*/	
+	
