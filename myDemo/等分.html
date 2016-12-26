@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>等分，自适应窗口大小（重要）</title>
+	<style>
+		*{
+			padding: 0;
+			margin:0;
+		}
+		ol,ul,li{
+			list-style: none;
+		}
+		header{
+			width: 100%;/*这里要用100%*/
+		}
+		header ul{
+			height: 50px;
+			background: red;
+			display: flex;
+		}
+		header ul li{
+			text-align: center;
+			line-height: 50px;
+			flex: 1;
+			
+		}
+		section{
+			width: 100%;/*这里要用100%*/
+			display: flex;
+		}
+		.aside{
+			height: 220px;
+			background: green;
+			/*flex-grow: 1;*/
+			flex: 1;
+		}
+		.content{
+			background: pink;
+			height: 220px;
+			/*flex-grow: 3;*/
+			flex: 3;
+		}
+		/*当浏览器窗口宽度小于等于700px，侧边栏自动隐藏*/
+		@media screen and (max-width:700px){
+			.aside{
+				display: none;
+				/*visibility: hidden;*/
+			}
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<ul>
+			<li>首页</li>
+			<li>我的手机</li>
+			<li>收藏</li>
+		</ul>
+	</header>
+	<section>
+		<div class="aside">我是侧边栏</div>
+		<div class="content">我是内容主体</div>
+	</section>
+</body>
+</html>

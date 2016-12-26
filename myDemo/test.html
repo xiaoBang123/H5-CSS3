@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			padding: 0;
+			margin:0;
+		}
+		.box{
+			width: 600px;
+			height: 300px;
+			display: flex;
+			outline: 3px solid red;
+
+		}
+		.box1{
+			/*width,flex-basis后写的覆盖先写的*/
+			width: 200px;
+			
+			flex: 3;
+			flex-basis: 300px;
+			height: 300px;
+			background: green;
+			
+
+		}
+		.box2{
+			
+			width: 200px;
+
+			flex: 3;
+			flex-basis: 200px;
+			height: 300px;
+			background: pink;
+			
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="box1"></div>
+		<div class="box2"></div>
+	</div>
+</body>
+</html>

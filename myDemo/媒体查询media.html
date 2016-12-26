@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>媒体查询</title>
+	<style>
+		{
+			padding: 0;
+			margin:0;
+		}
+		.box{
+		
+			height: 300px;
+			background: green;
+		}
+		/*width指的是浏览器窗口的宽度(可视窗口)*/
+		/*@media screen and (min-width: 750px){
+			.box{
+				background: pink;
+			}
+		}*/
+		/*@media all and (min-width: 1024px){
+			.box{
+				background: blue;
+			}
+		}*/
+		/*定义'height'是否大于或等于'width'。值portrait代表是，landscape代表否*/
+		/*@media screen and (orientation:landscape) {
+			 .box{
+			      background: red;
+			  }
+       }*/
+       @media screen and (min-device-width: 1281px) {/*device-width指的是电脑屏幕的宽度，控制台输入screen.width可以查看当前所使用的电脑的屏幕宽度（这里是1280）。这里代码的意思是当屏幕宽度大于等于1281px时，背景变为蓝色。*/
+    			 .box{
+    			      background: blue;
+    			  }
+	</style>
+</head>
+<body>
+	<div class="box">
+		
+	</div>
+</body>
+</html>

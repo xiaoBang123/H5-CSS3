@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>flex-box旧版本</title>
+	<style>
+		*{
+			padding: 0;
+			margin:0;
+		}
+		.box{
+			width: 900px;
+			height: 300px;
+			outline: 3px solid red;
+			/*display: flex;*/
+			display: -webkit-box;
+			/*-webkit-box-orient:horizontal;*/
+			/*-webkit-box-orient:vertical;*/
+			/*-webkit-box-orient:inline-axis;*/
+			/*-webkit-box-orient:block-axis;*/
+			/*-webkit-box-pack:center;*/
+			/*-webkit-box-pack:start;*/
+			/*-webkit-box-pack:end;*/
+			/*-webkit-box-pack:justify;*/
+			/*-webkit-box-align:start;*/
+			/*-webkit-box-align:center;*/
+			/*-webkit-box-align:end;*/
+			/*-webkit-box-align:baseline;*/
+			/*-webkit-box-align:stretch;*/
+			/*-webkit-box-direction:normal;*/
+			/*-webkit-box-direction:reverse;*/
+			/*-webkit-box-lines:single;*/
+			/*-webkit-box-lines:multiple;*//*实验性质支持box-lines，但没有实现该属性的效果（相当于不支持），请勿使用该属性*/
+
+		}
+		.left{
+			width: 200px;
+			height: 100px;
+			background: red;
+			/*-webkit-box-flex:1;*/
+			/*-webkit-box-flex-group:1;*/
+			/*-webkit-box-ordinal-group:3;*/
+		}
+		.center{
+			width: 600px;
+			height: 100px;
+			background: blue;
+		/*	border: 1px solid green;*/
+			/*-webkit-box-flex:1;*/
+			/*-webkit-box-flex-group:2;*/
+			/*-webkit-box-ordinal-group:2;*/
+		}
+		.right{
+			width: 200px;
+			height: 100px;
+			background: green;
+			/*-webkit-box-flex:1;*/
+			/*-webkit-box-flex-group:1;*/
+			/*-webkit-box-ordinal-group:1;*/
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="left">leftleftleft</div>
+		<div class="center">中中中中中中中中中中中中中中</div>
+		<div class="right">rightrightright</div>
+	</div>
+</body>
+</html>
