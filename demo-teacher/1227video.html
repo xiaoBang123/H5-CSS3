@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+         *{
+         	margin: 0;
+         	padding: 0
+         }
+	</style>
+</head>
+<body>
+	<video src="c.mp4" controls width="400px" height="300px"></video>
+	<button id="pause">暂停</button><button id="play">播放</button>
+	<br>
+	<button id="run">超级快进</button> <button id="fast">快进</button>
+		<br>
+	-<input type="range" min=0 max=100 step=2>+
+	<br>
+	<span id="currentTime"></span>/<span id="duration"></span>
+
+</body>
+<script src="jquery-1.11.0.js"></script>
+<script>
+	var pause = $("#pause"),
+	    play=$("#play"),
+	    video = $("video"),
+	    fast = $("#fast"),
+	    run = $("#run"),
+	    range = $("input[type='range']");
+        fast.on('click',function(event) {
+        	event.preventDefault();
+        	video[0].currentTime+=10;
+            play.trigger('click');
+        });
+        run.on('click',function(event) {
+        	event.preventDefault();
+            video[0].currentTime = 1000
+        });
+
+		pause.on('click',function(event) {
+			event.preventDefault();
+			video[0].pause();
+		});
+		play.on('click', function(event) {
+			event.preventDefault();
+			video[0].play();
+			$('#duration').html(video[0].duration)
+			//console.log(video[0].duration)
+		});
+
+		range.on('input',function(event) {
+			event.preventDefault();
+			//console.log(this.value)
+			video[0].volume = this.value/100
+		});
+        video.on("timeupdate",function(){
+        	//console.log(video[0].currentTime);
+        	$("#currentTime").html(video[0].currentTime)
+        })
+</script>
+</html>

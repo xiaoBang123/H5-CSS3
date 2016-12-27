@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div></div>
+</body>
+<script>
+	//1:存储数据,第二个参数会被自动调用tosting 方法，说明了第二个参数能字符串的形式的数据 “{}” “[]” 
+	// JSON 1：JSON.parse 2: JSON.stringify
+
+	 window.addEventListener('storage',function(e){  
+	      console.log(11);  
+	    },false);  
+
+
+	localStorage.setItem("1608",JSON.stringify({name:"二狗蛋"}));
+
+	//2：获取数据 
+
+	var obj = localStorage.getItem("1608")
+	console.log(JSON.parse(obj).name);
+
+	//3:删除 -- 全部删除，单个个删
+
+    //localStorage.clear();
+      //localStorage.removeItem("1608")
+
+    //4:事件,监控谁操作了Storage的数据
+
+    
+
+
+</script>
+</html>

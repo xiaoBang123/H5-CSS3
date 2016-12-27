@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	  *{
+	  	padding: 0;
+	  	margin:0;
+	  }
+       .wrap{
+       	 outline:3px solid red;
+       	 display: flex;
+       }
+
+
+header{
+	height: 128px;
+}
+ul li{
+	list-style: none
+}
+header ul{
+	display: flex;
+	height: 100%;
+}
+header li{
+	background: pink;
+	flex:1;
+	height: 100%;
+	text-align: center;
+}
+.aside{
+	width: 200px;
+	height: 600px;
+	background: red;
+	margin-right: 3px;
+}
+.right{
+	flex:1;
+	height: 600px;
+	background: gray
+}
+      @media screen and (max-width: 720px) {
+			.aside{
+				display: none
+			}
+       }
+
+       @media screen and (min-width: 720px) and (max-width: 1024px){
+			.aside{
+				background:yellow;
+			}
+       }
+	</style>
+</head>
+<body>
+	<header>
+		<ul>
+			<li>首页</li>
+			<li>导航</li>
+			<li>微博</li>
+		</ul>
+	</header>
+	<section class="wrap">
+		<div class="aside">
+			我是侧边栏
+		</div>
+		<div class="right">
+			我是主体区域
+		</div>
+	</section>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>video</title>
+</head>
+<body>
+	<!-- <video src="3theB.mp4" autoPlay controls></video> -->
+	<video id="video" src="3theB.mp4" controls></video><br/>
+	<button id="play">播放</button>
+	<button id="paused">暂停</button>
+	<button id="goBack">后退</button>
+	<button id="goFaster">快进</button>
+
+	-<input id="sound" type="range" min=0 max=100 step=2>+
+	<br/>
+	<span id="playTime">当前播放时长：</span>/
+	<span id="duration">播放总时长：</span>
+	<script src="../jquery-1.12.3.js"></script>
+	<script>
+		var $Video = $("#video");
+		var $Play = $("#play");
+		var $Paused = $("#paused");
+		var $GoBack = $("#goBack");
+		var $GoFaster = $("#goFaster");
+		var $Sound = $("#sound");
+		var $PlayTime = $("#playTime");
+		var $Duration = $("#duration");
+		$Play.on("click",function(){
+			$Video[0].play();//play方法必须要是dom对象调用
+			$Duration.html($Video.get(0).duration);
+		})
+		$Paused.on("click",function(){
+			$Video[0].pause();
+		})
+		$GoFaster.on("click",function(){
+			$Video[0].currentTime += 5;
+			// $Video[0].play();
+			$Play.trigger("click");
+		})
+		$GoBack.on("click",function(){
+			$Video[0].currentTime -=5;
+			// $Video[0].play();
+			 $Play.trigger("click");
+		})
+		$Sound.on("input",function(){
+			$Video[0].volume = $(this).val()/100;
+		})
+		$Video.on("timeupdate",function(){
+			$PlayTime.html($Video[0].currentTime);
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+1：history 对象 
+   之前的方法有history.back() 、forword()、 go()
+
+   history.pushState({}, "页面标题", "xxx.html");
+
+   第一个参数任意对象，保存用户点击前后按钮时可使用的数据。第二参数 为字符串 文档的title（支持的少）
+   第三个是可选，可为URL地址，当点击前后按钮时显示在地址栏中。
+
+   history.replaceState(null, "页面标题", "xxx.html");
+
+   window.addEventListener("popstate", function() {
+    var currentState = history.state;
+   	// 你自己的业务										
+    });

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	  *{
+	  	padding: 0;
+	  	margin:0;
+	  }
+	 .music{
+	 	position: absolute;
+	 	top: 50%;
+	 	left: 50%;
+	 	height: 256px;
+	 	width: 256px;
+	 	background: url('Vinyl.png') no-repeat;
+	 	margin: -128px 0 0 -128px;
+        /* transform:translate(-50%,-50%); */
+        animation:run 5s 0s infinite linear;
+	 }
+
+   .start{
+   	animation-play-state:running;
+   }
+   
+   .stop{
+   	animation-play-state:paused;
+   } 
+
+     @keyframes run{
+       from{
+       	  transform:rotate(0) ;
+       }
+       to{
+          transform:rotate(360deg) ;
+       }
+     }
+	</style>
+</head>
+<body>
+	<div class="music">
+		<audio src="ISwear.mp3" autoplay></audio>
+	</div>
+</body>
+<script src="jquery-1.11.0.js"></script>
+<script>
+	var audio = $("audio")[0],
+	    music = $(".music");
+        
+        music.on('click', function(event) {
+        	event.preventDefault();
+        	$(this).toggleClass('stop');
+        	if ($(this).hasClass('stop')) {
+        		audio.pause();
+        	}else{
+        		audio.play();
+        	};
+        });
+
+</script>
+</html>

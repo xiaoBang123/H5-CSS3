@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>audio</title>
+	<style>
+	*{
+		padding: 0;
+		margin:0;
+	}
+		.music{
+			width: 460px;
+			height: 454px;
+
+			background: url("music.jpg") 0 0 no-repeat;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			/*transform: translate(-50%,-50%);*/
+			margin:-227px 0 0 -230px;
+			animation: rotate 3s 0.1s infinite linear;
+		}
+		.paused{
+			animation-play-state: paused;
+		}
+
+		@keyframes rotate{
+			from{
+				transform:rotate(0);
+			}
+			to{
+				transform:rotate(360deg);
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="music"></div>
+	<audio src="wukong.mp3" autoplay controls></audio>
+	<script src="../jquery-1.12.3.js"></script>
+	<script>
+	$(".music").on("click",function(){
+		$(this).toggleClass("paused");
+		if($(this).hasClass("paused")){
+			$("audio").get(0).pause();
+		}else{
+			$("audio")[0].play();
+		}
+	})
+	</script>
+</body>
+</html>

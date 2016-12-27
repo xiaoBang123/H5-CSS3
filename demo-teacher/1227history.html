@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button id="btn1">
+		获取数据name
+	</button>
+    <button id="btn2">
+		获取数据age
+	</button>
+	<div id="text">
+		
+	</div>
+</body>
+<script src="zepto.min.js"></script>
+<script>
+	
+	var btn = $("#btn1"),btn2=$("#btn2")
+	text = document.querySelector('#text')
+
+	btn[0].addEventListener('click',function(event) {
+		$.get('test.json', function(data) {
+
+			//history.pushState({}, "请求", location.href+"#name"); //第一个参数存放数据，但是几乎没有浏览器支持，浏览的url地址的
+			history.pushState({}, "请求", location.origin+location.pathname+"#name");
+			$(text).html(data.name);
+		});
+	}) 
+     btn2.on('click',function(event) {
+     	event.preventDefault();
+     	$.get('test1.json', function(data) {
+
+			//history.pushState({}, "请求", location.href+"#name"); //第一个参数存放数据，但是几乎没有浏览器支持，浏览的url地址的
+			history.pushState({}, "请求", location.origin+location.pathname+"#age");
+			$(text).html(data.age);
+		});
+     });
+
+	//popstate用来监听url变化/历史记录的切换
+	window.addEventListener("popstate", function() {
+       //var currentState = history.state;
+   	    console.log(location.hash)								
+    });
+
+    window.addEventListener("hashchange", function() {
+       //var currentState = history.state;
+   	    console.log(location.hash)								
+    });
+</script>
+</html>

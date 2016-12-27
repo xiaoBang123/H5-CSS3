@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	//1.存储数据
+	var obj = {
+		name1:"张雷",
+		name2:"张三"
+	}
+	// localStorage.setItem("1608班",JSON.stringify(obj));
+	//2.获取数据
+	var obj1 = JSON.parse(localStorage.getItem("1608班"));
+	console.log(obj1.name2);
+	//3.删除数据,删除所有数据，删除单个数据
+	// localStorage.clear();//删除全部storage
+	// localStorage.removeItem("1608班");//删除指定的数据
+	//4.事件，监控是谁操控了storage的数据,当其他页面对storage进行操作时，就会执行这个回调，一定要放到服务器下面运行才有效果
+	window.addEventListener("storage",function(e){
+		console.log("233");
+	},false)
+
+	</script>
+</body>
+</html>

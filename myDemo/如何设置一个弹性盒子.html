@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>设置弹性盒子</title>
+	<style>
+		*{
+			padding: 0;
+			margin:0;
+		}
+		
+		.box{
+			width: 100%;/*父元素width：100%*/
+			min-width: 459px;/*给个最小宽度*/
+			outline: 3px solid pink;
+			display: flex;
+		}
+		.left{
+			height: 100px;
+			line-height: 100px;
+			text-align: center;
+			background: green;
+
+			flex:1;/*1/4*/
+		}
+		.right{
+			height: 100px;
+			line-height: 100px;
+			text-align: center;
+			background: red;
+			flex:3;/*3/4*/
+		}
+	</style>
+</head>
+<body>
+	<section>
+		<div class="box">
+			<div class="left">我是弹性盒子1</div>
+			<div class="right">我是弹性盒子2</div>
+		</div>
+	</section>
+	
+</body>
+</html>
